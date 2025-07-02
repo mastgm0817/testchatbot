@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safety Sage 위젯 테스트</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .test-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .test-info h3 {
+            color: #495057;
+            margin-top: 0;
+        }
+        .test-info p {
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏗️ Safety Sage 위젯 테스트</h1>
+        
+        <div class="description">
+            <p>이 페이지는 Safety Sage 챗봇 위젯의 기능을 테스트하기 위한 페이지입니다.</p>
+            <p>오른쪽 하단에 챗봇 위젯이 표시되어야 합니다.</p>
+        </div>
+
+        <div class="test-info">
+            <h3>📋 테스트 항목</h3>
+            <p>✅ 위젯이 페이지에 정상적으로 로드되는지 확인</p>
+            <p>✅ 챗봇 버튼을 클릭했을 때 채팅 인터페이스가 열리는지 확인</p>
+            <p>✅ 메시지를 입력하고 전송할 수 있는지 확인</p>
+            <p>✅ 음성 인식 기능이 작동하는지 확인</p>
+            <p>✅ 메시지 복사 기능이 작동하는지 확인</p>
+            <p>✅ 위젯을 닫을 수 있는지 확인</p>
+        </div>
+
+        <div class="test-info">
+            <h3>🔧 위젯 초기화</h3>
+            <p>아래 버튼을 클릭하여 위젯을 다시 초기화할 수 있습니다:</p>
+            <button onclick="reinitializeWidget()" style="background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+                위젯 재초기화
+            </button>
+        </div>
+    </div>
+
+    <!-- 위젯 컨테이너 -->
+    <div id="safety-sage-widget"></div>
+
+    <!-- CSS 스타일 -->
+    <link rel="stylesheet" href="./dist/assets/index-DZjYePrS.css" />
+
+    <!-- 위젯 스크립트 -->
+    <script type="module" src="./dist/widget.js"></script>
+    <script>
+        // 위젯 초기화
+        function initializeWidget() {
+            if (window.renderChatbotWidget) {
+                window.renderChatbotWidget('safety-sage-widget');
+                console.log('Safety Sage 위젯 렌더링 완료');
+            } else {
+                console.error('renderChatbotWidget 함수를 찾을 수 없습니다');
+            }
+        }
+
+        // 위젯 재초기화
+        window.reinitializeWidget = function() {
+            const widgetContainer = document.getElementById('safety-sage-widget');
+            if (widgetContainer) {
+                widgetContainer.innerHTML = '';
+                initializeWidget();
+            }
+        };
+
+        // 페이지 로드 시 위젯 초기화
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Safety Sage 위젯 테스트 페이지 로드 완료');
+            initializeWidget();
+        });
+    </script>
+</body>
+</html> 

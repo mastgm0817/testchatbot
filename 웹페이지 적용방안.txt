@@ -1,0 +1,43 @@
+아래 코드를 복사해서 원하는 페이지의 <body> 아무 곳에나 붙여넣으면
+챗봇 위젯이 오른쪽 하단에 플로팅되고, 클릭 시 대화창이 900x660px(반응형)으로 열립니다.
+
+✅ 내 페이지에 챗봇 위젯 삽입 코드
+<!-- 1. 챗봇 위젯 컨테이너 -->
+<div id="my-chatbot-widget"></div>
+
+<!-- 2. 챗봇 위젯 스타일 (빌드된 CSS 파일, 실제 파일명으로 교체) -->
+<link rel="stylesheet" href="/dist/assets/index-DZjYePrS.css" />
+
+<!-- 3. 챗봇 위젯 스크립트 (빌드된 widget.js, 실제 경로로 교체) -->
+<script type="module" src="/dist/widget.js"></script>
+<script>
+  window.renderChatbotWidget('my-chatbot-widget');
+</script>
+
+📌 사용법 안내
+컨테이너 ID는 원하는 대로 바꿔도 됩니다.
+(my-chatbot-widget → chatbot-widget 등)
+CSS/JS 경로는 실제 배포 위치에 맞게 수정하세요.
+예: /dist/assets/index-DZjYePrS.css
+예: /dist/widget.js
+<head>에 <link rel="stylesheet" ...>를 넣어도 되고,
+<body>에 위 순서대로 넣어도 무방합니다.
+
+💡 적용 예시 (전체 HTML)
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>내 웹사이트</title>
+  <link rel="stylesheet" href="/dist/assets/index-DZjYePrS.css" />
+</head>
+<body>
+  <!-- ... 기존 페이지 내용 ... -->
+
+  <div id="my-chatbot-widget"></div>
+  <script type="module" src="/dist/widget.js"></script>
+  <script>
+    window.renderChatbotWidget('my-chatbot-widget');
+  </script>
+</body>
+</html>
