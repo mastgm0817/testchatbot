@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "postbuild": "copy dist\\widget.js public\\widget.js && xcopy /E /I /Y dist\\assets public\\assets",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview"
