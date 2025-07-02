@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safety Sage 위젯 테스트</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .test-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .test-info h3 {
+            color: #495057;
+            margin-top: 0;
+        }
+        .test-info p {
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 위젯 컨테이너 -->
+    <div id="safety-sage-widget"></div>
+
+    <!-- CSS 스타일 -->
+    <link rel="stylesheet" href="./dist/assets/index-DZjYePrS.css" />
+
+    <!-- 위젯 스크립트 -->
+    <script type="module" src="./dist/widget.js"></script>
+    <script>
+        // 위젯 초기화
+        function initializeWidget() {
+            if (window.renderChatbotWidget) {
+                window.renderChatbotWidget('safety-sage-widget');
+                console.log('Safety Sage 위젯 렌더링 완료');
+            } else {
+                console.error('renderChatbotWidget 함수를 찾을 수 없습니다');
+            }
+        }
+
+        // 위젯 재초기화
+        window.reinitializeWidget = function() {
+            const widgetContainer = document.getElementById('safety-sage-widget');
+            if (widgetContainer) {
+                widgetContainer.innerHTML = '';
+                initializeWidget();
+            }
+        };
+
+        // 페이지 로드 시 위젯 초기화
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Safety Sage 위젯 테스트 페이지 로드 완료');
+            initializeWidget();
+        });
+    </script>
+</body>
+</html> 
